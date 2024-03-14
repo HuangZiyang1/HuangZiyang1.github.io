@@ -1,0 +1,303 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>后台管理系统复盘 | 江月迟迟</title><meta name="author" content="ziyang"><meta name="copyright" content="ziyang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Note技术复盘毁灭性bug 随便下载库  随便下载库 https:&#x2F;&#x2F;github.com&#x2F;WAGFS&#x2F;vue-zxing  下载了没有人用的库，因为代码互相依赖，依赖版本不统一，导致了项目打开后显现不出来任何内容。接着我使用npm fix audit语句尝试修复，结果仍无法显现任何内容，之后一时心急使用npm fix audit —force修复，导致项目直接崩溃，无法启动。 功能介绍和业务细">
+<meta property="og:type" content="article">
+<meta property="og:title" content="后台管理系统复盘">
+<meta property="og:url" content="http://example.com/posts/82d9de73.html">
+<meta property="og:site_name" content="江月迟迟">
+<meta property="og:description" content="Note技术复盘毁灭性bug 随便下载库  随便下载库 https:&#x2F;&#x2F;github.com&#x2F;WAGFS&#x2F;vue-zxing  下载了没有人用的库，因为代码互相依赖，依赖版本不统一，导致了项目打开后显现不出来任何内容。接着我使用npm fix audit语句尝试修复，结果仍无法显现任何内容，之后一时心急使用npm fix audit —force修复，导致项目直接崩溃，无法启动。 功能介绍和业务细">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2024-03-14T14:08:54.000Z">
+<meta property="article:modified_time" content="2024-03-14T06:29:19.940Z">
+<meta property="article:author" content="ziyang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/posts/82d9de73.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '后台管理系统复盘',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-03-14 06:29:19'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">1</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="江月迟迟"><span class="site-name">江月迟迟</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">后台管理系统复盘</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-03-14T14:08:54.000Z" title="发表于 2024-03-14 14:08:54">2024-03-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-03-14T06:29:19.940Z" title="更新于 2024-03-14 06:29:19">2024-03-14</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="后台管理系统复盘"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h1><h2 id="技术复盘"><a href="#技术复盘" class="headerlink" title="技术复盘"></a>技术复盘</h2><h3 id="毁灭性bug"><a href="#毁灭性bug" class="headerlink" title="毁灭性bug"></a>毁灭性bug</h3><ol>
+<li>随便下载库</li>
+</ol>
+<h4 id="随便下载库"><a href="#随便下载库" class="headerlink" title="随便下载库"></a>随便下载库</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/WAGFS/vue-zxing">https://github.com/WAGFS/vue-zxing</a></p>
+</blockquote>
+<p>下载了没有人用的库，因为代码互相依赖，依赖版本不统一，导致了项目打开后显现不出来任何内容。接着我使用npm fix audit语句尝试修复，结果仍无法显现任何内容，之后一时心急使用npm fix audit —force修复，导致项目直接崩溃，无法启动。</p>
+<h3 id="功能介绍和业务细节"><a href="#功能介绍和业务细节" class="headerlink" title="功能介绍和业务细节"></a>功能介绍和业务细节</h3><ol>
+<li>模板的选择</li>
+<li>模板的初始化</li>
+<li>模板的项目结构分析</li>
+<li>登录（注册）</li>
+<li>面包屑导航</li>
+<li>图表的使用</li>
+<li>element自定义样式修改</li>
+<li>样式scope问题</li>
+<li>上传</li>
+<li>下载（导出）</li>
+<li>增删查改</li>
+<li>多权限路由</li>
+<li>分页逻辑</li>
+</ol>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://panjiachen.github.io/vue-element-admin-site/zh/guide/">模板文档</a></p>
+<p><a target="_blank" rel="noopener" href="https://panjiachen.github.io/vue-element-admin/#/dashboard">模板预览</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/512367316">推荐12 个超棒的开源后台管理系统（强烈推荐收藏）</a></p>
+</blockquote>
+<h4 id="模板的选择"><a href="#模板的选择" class="headerlink" title="模板的选择"></a>模板的选择</h4><p>后台管理系统很多，这里选择了基于vue2的vue-element-admin</p>
+<h4 id="模板的初始化"><a href="#模板的初始化" class="headerlink" title="模板的初始化"></a>模板的初始化</h4><p>模板文档中：</p>
+<blockquote>
+<p>建议</p>
+<p>你可以把 <code>vue-element-admin</code>当做工具箱或者集成方案仓库，在 <code>vue-admin-template</code> 的基础上进行二次开发，想要什么功能或者组件就去 <code>vue-element-admin</code> 那里复制过来。</p>
+</blockquote>
+<p>但我个人开发的感受是还是直接使用vue-element-admin更加方便，删比增简单。有时因为要引用一个功能，需要整个项目找他的入口和引用。</p>
+<p>两个例子：</p>
+<ol>
+<li><p>在组件error-log中，引用的资源有：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/HuangZiyang1/img/Typora-img/202403141426340.png" alt="image-20240303142837011" style="zoom:50%;" /></p>
+<p>处理起来比较困难，大致的逻辑是在设置settings.js中确定errorlog的使用环境，在error-log.js中判断是否需要使用……</p>
+</li>
+<li><p>多权限路由中，也有很多关于roles判断的地方</p>
+</li>
+</ol>
+<p>模板初始化成功后，可以运行项目和code业务代码</p>
+<h4 id="模板的项目结构分析"><a href="#模板的项目结构分析" class="headerlink" title="模板的项目结构分析"></a>模板的项目结构分析</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/cxyuanaa/article/details/109028129">Vue-element-admin之目录结构及相关链接</a></p>
+</blockquote>
+<h4 id="登录（注册）"><a href="#登录（注册）" class="headerlink" title="登录（注册）"></a>登录（注册）</h4><p>在上两个项目中，登录是比较困扰我的业务逻辑，主要改动的地方有：</p>
+<p>api/login.js 中重写登录接口</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// url: &#x27;/vue-admin-template/user/info&#x27;,</span></span><br><span class="line">   <span class="attr">url</span>: <span class="string">&#x27;/user/info&#x27;</span>,</span><br><span class="line">   <span class="attr">method</span>: <span class="string">&#x27;get&#x27;</span>,</span><br><span class="line">   <span class="attr">params</span>: &#123; token &#125;</span><br><span class="line"> &#125;)</span><br></pre></td></tr></table></figure>
+<p>src/main.js 中取消mock服务</p>
+<p>src/utils/request.js 中重写登录逻辑和token名</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// config.headers[&#x27;X-Token&#x27;] = getToken()</span></span><br><span class="line">   config.<span class="property">headers</span>[<span class="string">&#x27;Authorization&#x27;</span>] = <span class="title function_">getToken</span>()</span><br><span class="line">   </span><br><span class="line"><span class="comment">// if (res.code !== 20000) &#123;</span></span><br><span class="line">   <span class="keyword">if</span> (res.<span class="property">code</span> !== <span class="number">200</span>) &#123;</span><br></pre></td></tr></table></figure>
+<p>vue.config.js 中取消mock服务，新增跨域设置</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="attr">proxy</span>: &#123; <span class="comment">// 配置反向代理</span></span><br><span class="line">      [process.<span class="property">env</span>.<span class="property">VUE_APP_BASE_API</span>]: &#123; <span class="comment">// &quot;/api&quot;自定义的请求路径地址</span></span><br><span class="line">        <span class="attr">target</span>: <span class="string">&#x27;your-service.com:port&#x27;</span>,</span><br><span class="line">        <span class="attr">changeOrigin</span>: <span class="literal">true</span>, <span class="comment">// 是否进行跨域 ture是  false不是</span></span><br><span class="line">        <span class="attr">pathRewrite</span>: &#123; <span class="comment">// 路径重写</span></span><br><span class="line">          [<span class="string">&#x27;^&#x27;</span> + process.<span class="property">env</span>.<span class="property">VUE_APP_BASE_API</span>]: <span class="string">&#x27;/&#x27;</span></span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"><span class="comment">// before: require(&#x27;./mock/mock-server.js&#x27;)</span></span><br></pre></td></tr></table></figure>
+<p>.env.development，.env.production 中配置域名</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># VUE_APP_BASE_API = &#x27;/dev-api&#x27;</span></span><br><span class="line">VUE_APP_BASE_API = <span class="string">&#x27;your-service.com:port&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>src/utils/auth.js 中重写tokenkey</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// const TokenKey = &#x27;vue_admin_template_token&#x27;</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">TokenKey</span> = <span class="string">&#x27;Authorization&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>还有自己处理一下response的data，<strong>有的请求不用解构</strong></p>
+<h4 id="面包屑导航"><a href="#面包屑导航" class="headerlink" title="面包屑导航"></a>面包屑导航</h4><p><img src="https://cdn.jsdelivr.net/gh/HuangZiyang1/img/Typora-img/202403141427553.png" alt="image-20240303145647192"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/HuangZiyang1/img/Typora-img/202403141427745.png" alt="image-20240303150038689"></p>
+<p>我记得出现过一个bug，全部的dashboard字样重新设置会显示第一张图，具体的问题我还没有搞明白。</p>
+<h4 id="图表的使用"><a href="#图表的使用" class="headerlink" title="图表的使用"></a>图表的使用</h4><p>用echart和模板自带的图表组件就好了</p>
+<h4 id="element自定义样式修改"><a href="#element自定义样式修改" class="headerlink" title="element自定义样式修改"></a>element自定义样式修改</h4><p>src\styles\element-ui.scss 下重新设置，样式的类名去查html元素</p>
+<h4 id="样式scope问题"><a href="#样式scope问题" class="headerlink" title="样式scope问题"></a>样式scope问题</h4><p><img src="https://cdn.jsdelivr.net/gh/HuangZiyang1/img/Typora-img/202403141427140.png" alt="image-20240303150633155"></p>
+<p>在表格中，如果需要根据某一条的状态设置特殊样式，此时在element-ui.scss全局设置样式是不可行的，因此需要单独设置特殊样式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 判断状态的逻辑写到这里面,这个是上色</span></span><br><span class="line">    <span class="title function_">statusClassName</span>(<span class="params">&#123; row, column, rowIndex, columnIndex &#125;</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (row.<span class="property">deleted</span> === <span class="number">1</span> &amp;&amp; column.<span class="property">label</span> === <span class="string">&#x27;笔记状态&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;deleted&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (row.<span class="property">shielded</span> === <span class="number">1</span> &amp;&amp; column.<span class="property">label</span> === <span class="string">&#x27;笔记状态&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;shielded&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (row.<span class="property">star</span> === <span class="number">1</span> &amp;&amp; column.<span class="property">label</span> === <span class="string">&#x27;笔记状态&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;star&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">&#x27;normal&#x27;</span></span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+<p>然后需要style设置非scoped，才能穿透样式，为了防止样式穿透影响其他元素，应当设置一个特殊的container装载这些样式</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;style lang=&quot;scss&quot;&gt;</span><br><span class="line"><span class="selector-class">.very-special-container</span> &#123;</span><br><span class="line">  <span class="selector-class">.deleted</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#e2a0a9</span> <span class="meta">!important</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-class">.shielded</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#bbb4b4</span> <span class="meta">!important</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-class">.star</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">rgb</span>(<span class="number">255</span>, <span class="number">242</span>, <span class="number">213</span>) <span class="meta">!important</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h4><p>一般都用自定义上传，el-upload配置</p>
+<p>两个项目中涉及了：</p>
+<ol>
+<li>自定义上传规则</li>
+<li>最多允许一张图片的上传</li>
+<li>必须有一张图片的上传</li>
+<li>至少上传一张，最多允许九张图片的上传</li>
+</ol>
+<h5 id="自定义上传规则"><a href="#自定义上传规则" class="headerlink" title="自定义上传规则"></a>自定义上传规则</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-upload </span><br><span class="line">class=&quot;upload-demo&quot;</span><br><span class="line">ref=&quot;upload&quot;</span><br><span class="line">action=&quot;#&quot;</span><br><span class="line">drag</span><br><span class="line">accept=&quot;.jpg,.jpeg,.png,.bmp&quot;</span><br><span class="line">:auto-upload=&quot;false&quot;</span><br><span class="line">:limit=&quot;1&quot;</span><br><span class="line">:on-change=&quot;changeFileLength&quot;</span><br><span class="line">:http-request=&quot;uploadRequest&quot; </span><br><span class="line">list-type=&quot;picture&quot;&gt;</span><br><span class="line">&lt;div slot=&quot;tip&quot; class=&quot;el-upload__tip&quot;&gt;图片推荐尺寸长宽比为3：1&lt;/div&gt;</span><br><span class="line">&lt;/el-upload&gt;</span><br></pre></td></tr></table></figure>
+<p>然后在下面js中写上传逻辑，需要注意的点其实是怎么验证（图片一定要上传时）</p>
+<h5 id="最多允许一张图片的上传"><a href="#最多允许一张图片的上传" class="headerlink" title="最多允许一张图片的上传"></a>最多允许一张图片的上传</h5><p>设置limit属性</p>
+<h5 id="必须有一张图片的上传"><a href="#必须有一张图片的上传" class="headerlink" title="必须有一张图片的上传"></a>必须有一张图片的上传</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">dynamicValidateForm</span>.<span class="property">urlList</span>.<span class="property">length</span> === <span class="number">0</span>) &#123;</span><br><span class="line">   <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">filesLength</span> === <span class="number">0</span>) &#123;</span><br><span class="line">     <span class="variable language_">this</span>.$message(&#123;</span><br><span class="line">     <span class="attr">message</span>: <span class="string">&#x27;没有上传图片&#x27;</span>,</span><br><span class="line">     <span class="attr">type</span>: <span class="string">&#x27;info&#x27;</span></span><br><span class="line">     &#125;)</span><br><span class="line">     <span class="keyword">return</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="至少有一张图片，最多有九张图片的上传"><a href="#至少有一张图片，最多有九张图片的上传" class="headerlink" title="至少有一张图片，最多有九张图片的上传"></a>至少有一张图片，最多有九张图片的上传</h5><p>前二者的结合</p>
+<h4 id="下载（导出）"><a href="#下载（导出）" class="headerlink" title="下载（导出）"></a>下载（导出）</h4><p>根据vue-element-admin改写，添加一下特殊的配置项即可</p>
+<p>性能考虑，需要分包引入：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">handleDownload</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">downloadLoading</span> = <span class="literal">true</span></span><br><span class="line">    <span class="comment">// 分包引入</span></span><br><span class="line">    <span class="keyword">import</span>(<span class="string">&#x27;@/vendor/Export2Excel&#x27;</span>).<span class="title function_">then</span>(<span class="function"><span class="params">excel</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// const data = filterVal</span></span><br><span class="line">        <span class="comment">// your downloading method</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">downloadLoading</span> = <span class="literal">false</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>处理配置项</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// multiHeader：一级表头</span></span><br><span class="line"><span class="comment">// tHeader：二级表头</span></span><br><span class="line"><span class="comment">// filterVal：匹配的字段，与tHeader一一对应</span></span><br><span class="line"><span class="comment">// list：获得原始数据</span></span><br><span class="line"><span class="comment">// data = formaJson：处理原始数据</span></span><br><span class="line"><span class="comment">// merges：一级表头和二级表头的合并</span></span><br><span class="line"><span class="keyword">const</span> multiHeader = [[<span class="string">&#x27;笔记ID&#x27;</span>, <span class="string">&#x27;笔记信息&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;笔记内容&#x27;</span>, <span class="string">&#x27;笔记热度&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;笔记数据&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;运营信息&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;笔记状态&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;&#x27;</span>]]</span><br><span class="line"><span class="keyword">const</span> tHeader = [<span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;笔记标题&#x27;</span>, <span class="string">&#x27;笔记图片/视频地址&#x27;</span>, <span class="string">&#x27;笔记链接&#x27;</span>, <span class="string">&#x27;标签&#x27;</span>, <span class="string">&#x27;作者小红书昵称&#x27;</span>, <span class="string">&#x27;笔记发布时间&#x27;</span>, <span class="string">&#x27;IP&#x27;</span>, <span class="string">&#x27;作者小红书号&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;级别&#x27;</span>, <span class="string">&#x27;火爆程度&#x27;</span>, <span class="string">&#x27;点赞数&#x27;</span>, <span class="string">&#x27;评论数&#x27;</span>, <span class="string">&#x27;收藏数&#x27;</span>, <span class="string">&#x27;分享数&#x27;</span>, <span class="string">&#x27;组名&#x27;</span>, <span class="string">&#x27;微信群名&#x27;</span>, <span class="string">&#x27;作者微信昵称&#x27;</span>, <span class="string">&#x27;作者真实姓名&#x27;</span>, <span class="string">&#x27;是否屏蔽&#x27;</span>, <span class="string">&#x27;是否删除&#x27;</span>, <span class="string">&#x27;是否收藏&#x27;</span>]</span><br><span class="line"><span class="keyword">const</span> filterVal = [<span class="string">&#x27;id&#x27;</span>, <span class="string">&#x27;title&#x27;</span>, <span class="string">&#x27;picture&#x27;</span>, <span class="string">&#x27;url&#x27;</span>, <span class="string">&#x27;tags&#x27;</span>, <span class="string">&#x27;bookletUserName&#x27;</span>, <span class="string">&#x27;publishTime&#x27;</span>, <span class="string">&#x27;ip&#x27;</span>, <span class="string">&#x27;redBookletNumber&#x27;</span>, <span class="string">&#x27;description&#x27;</span>, <span class="string">&#x27;degree&#x27;</span>, <span class="string">&#x27;hotDegree&#x27;</span>, <span class="string">&#x27;likes&#x27;</span>, <span class="string">&#x27;comments&#x27;</span>, <span class="string">&#x27;bookmarks&#x27;</span>, <span class="string">&#x27;shares&#x27;</span>, <span class="string">&#x27;groupName&#x27;</span>, <span class="string">&#x27;wxGroupName&#x27;</span>, <span class="string">&#x27;wxName&#x27;</span>, <span class="string">&#x27;authorName&#x27;</span>, <span class="string">&#x27;shielded&#x27;</span>, <span class="string">&#x27;deleted&#x27;</span>, <span class="string">&#x27;star&#x27;</span>]</span><br><span class="line"><span class="keyword">const</span> list = <span class="variable language_">this</span>.<span class="property">list</span></span><br><span class="line"><span class="keyword">const</span> data = <span class="variable language_">this</span>.<span class="title function_">formatJson</span>(filterVal, list)</span><br><span class="line"><span class="keyword">const</span> merges = [<span class="string">&#x27;A1:A2&#x27;</span>, <span class="string">&#x27;B1:I1&#x27;</span>, <span class="string">&#x27;J1:J2&#x27;</span>, <span class="string">&#x27;K1:L1&#x27;</span>, <span class="string">&#x27;M1:P1&#x27;</span>, <span class="string">&#x27;Q1:T1&#x27;</span>, <span class="string">&#x27;U1:W1&#x27;</span>]</span><br></pre></td></tr></table></figure>
+<p>调用函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>(<span class="string">&#x27;@/vendor/Export2Excel&#x27;</span>).<span class="title function_">then</span>(<span class="function"><span class="params">excel</span> =&gt;</span> &#123;</span><br><span class="line">excel.<span class="title function_">export_json_to_excel</span>(&#123;</span><br><span class="line">          multiHeader,</span><br><span class="line">          <span class="attr">header</span>: tHeader,</span><br><span class="line">          merges,</span><br><span class="line">          data,</span><br><span class="line">          <span class="attr">filename</span>: <span class="string">&#x27;笔记查询结果&#x27;</span></span><br><span class="line">        &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="增删查改"><a href="#增删查改" class="headerlink" title="增删查改"></a>增删查改</h4><p>略</p>
+<h4 id="多权限路由"><a href="#多权限路由" class="headerlink" title="多权限路由"></a>多权限路由</h4><p>见chuang-system的写法</p>
+<h4 id="分页逻辑"><a href="#分页逻辑" class="headerlink" title="分页逻辑"></a>分页逻辑</h4><p>当时写分页的时候比较乱，现在可以总结一下分页。</p>
+<blockquote>
+<p> <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41860630/article/details/126471343?spm=1001.2014.3001.5502">Elasticsearch分页的三种方式:from+size、scroll、search_after</a></p>
+</blockquote>
+<ol>
+<li>前端分页</li>
+<li>服务器分页<ol>
+<li>form + size</li>
+<li>scroll</li>
+</ol>
+</li>
+</ol>
+<h5 id="前端分页"><a href="#前端分页" class="headerlink" title="前端分页"></a>前端分页</h5><p>后台返回所有数据，前端进行分页，维护list和show_list</p>
+<h5 id="服务器分页——form-size"><a href="#服务器分页——form-size" class="headerlink" title="服务器分页——form + size"></a>服务器分页——form + size</h5><p>前端搜索体验最好，但只能用于后台小数据集</p>
+<p>前端维护total，currentPage，pageSize、后台返回的list即可</p>
+<h5 id="服务器分页——scroll"><a href="#服务器分页——scroll" class="headerlink" title="服务器分页——scroll"></a>服务器分页——scroll</h5><p>维护scollIdArray，page，total即可，total由后台返回。</p>
+<p>page的变化由prevClick和nextClick决定</p>
+<p>scollIdArray，更新于后台返回数据，点击prevClick和nextClick，搜索条件发生变化时</p>
+<p>在后台返回数据时：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">scollIdArray</span>[<span class="variable language_">this</span>.<span class="property">page</span> - <span class="number">1</span>] = response.<span class="property">data</span>.<span class="property">scrollId</span></span><br></pre></td></tr></table></figure>
+<p>点击prevClick和nextClick时：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (event === <span class="string">&#x27;prev&#x27;</span>) &#123;</span><br><span class="line">  data.<span class="property">afterId</span> = <span class="variable language_">this</span>.<span class="property">scollIdArray</span>[<span class="variable language_">this</span>.<span class="property">page</span> - <span class="number">3</span>]</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">page</span>--</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (event === <span class="string">&#x27;next&#x27;</span>) &#123;</span><br><span class="line">  data.<span class="property">afterId</span> = <span class="variable language_">this</span>.<span class="property">scollIdArray</span>[<span class="variable language_">this</span>.<span class="property">page</span> - <span class="number">1</span>]</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">page</span>++</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>搜索条件发生变化时，清空</p>
+<h3 id="一些bug的处理思路"><a href="#一些bug的处理思路" class="headerlink" title="一些bug的处理思路"></a>一些bug的处理思路</h3><p>首先一点，前端没多少很难的东西。很多问题是后台给你制造的，揪出对接后台问题。</p>
+<ol>
+<li>空数据（数据为null）问题</li>
+<li>element组件dialogdata读取问题</li>
+<li>element-dialog和echart不太兼容的问题</li>
+</ol>
+<h5 id="空数据（数据为null）问题"><a href="#空数据（数据为null）问题" class="headerlink" title="空数据（数据为null）问题"></a>空数据（数据为null）问题</h5><p>后台传来null时（往往是爬虫没有给后台数据，后台只建了表但是没有数据），很多代码会跑出异常，需要增强健壮性。</p>
+<p>在使用后台数据进行操作之前，需要判断后台数据是否为null，然后进行处理。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">watch</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;list&#x27;</span>: &#123;</span><br><span class="line">      <span class="attr">deep</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="title function_">handler</span>(<span class="params">newList</span>) &#123;</span><br><span class="line">        <span class="comment">// 遍历数组中的对象</span></span><br><span class="line">        newList.<span class="title function_">forEach</span>(<span class="function">(<span class="params">obj, index</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="title class_">Object</span>.<span class="title function_">keys</span>(obj).<span class="title function_">forEach</span>(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (key === <span class="string">&#x27;tags&#x27;</span> &amp;&amp; obj[key] === <span class="literal">null</span>) &#123;</span><br><span class="line">              obj[key] = [<span class="string">&#x27;未知&#x27;</span>]</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (key === <span class="string">&#x27;degree&#x27;</span> &amp;&amp; obj[key] === <span class="literal">null</span>) &#123;</span><br><span class="line"></span><br><span class="line">              obj[key] = <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (key === <span class="string">&#x27;publishTime&#x27;</span> &amp;&amp; obj[key] === <span class="literal">null</span>) &#123;</span><br><span class="line">              obj[key] = <span class="string">&#x27;XXXX-XX-XX XX:XX:XX&#x27;</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (obj[key] === <span class="literal">null</span>) &#123;</span><br><span class="line"></span><br><span class="line">              obj[key] = <span class="string">&#x27;未知&#x27;</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+<h5 id="element组件dialogdata读取问题"><a href="#element组件dialogdata读取问题" class="headerlink" title="element组件dialogdata读取问题"></a>element组件dialogdata读取问题</h5><p>业务上，有一个dialog需要点开之后再请求后台然后渲染数据，但是element-dialog是当即渲染而不是点开之后再去获得，因此需要默认的设置</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">list</span> &amp;&amp; <span class="variable language_">this</span>.<span class="property">list</span>.<span class="property">length</span> &gt; <span class="number">0</span> ? <span class="variable language_">this</span>.<span class="property">list</span>[<span class="variable language_">this</span>.<span class="property">showIndex</span>] : &#123;&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="element-dialog和echart不太兼容的问题"><a href="#element-dialog和echart不太兼容的问题" class="headerlink" title="element-dialog和echart不太兼容的问题"></a>element-dialog和echart不太兼容的问题</h5><p>echart中很喜欢使用width:100%，但是dialog默认的width是自动计算的，因此会导致dialog非常小，echart不能正常显示的问题。</p>
+<p>需要将dialog设置宽度，如果仍不行需要重新启动服务，因为有时候echart在我的代码里是只初始化一次，且dialog在页面加载的时候就会自动加载。</p>
+<p>如果图表仍不正常显示，考虑是前者数据读取的问题</p>
+<h5 id="登录问题"><a href="#登录问题" class="headerlink" title="登录问题"></a>登录问题</h5><p>当时卡了我很久，登录的思路是：取消mock服务，业务逻辑：配置域名，配置代理，调用自己的接口，返回数据处理。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/cxyuanaa/article/details/109028129">Vue-element-admin之目录结构及相关链接</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/WAGFS/vue-zxing">https://github.com/WAGFS/vue-zxing</a></p>
+<p><a target="_blank" rel="noopener" href="https://panjiachen.github.io/vue-element-admin-site/zh/guide/">模板文档</a></p>
+<p><a target="_blank" rel="noopener" href="https://panjiachen.github.io/vue-element-admin/#/dashboard">模板预览</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/512367316">推荐12 个超棒的开源后台管理系统（强烈推荐收藏）</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41860630/article/details/126471343?spm=1001.2014.3001.5502">Elasticsearch分页的三种方式:from+size、scroll、search_after</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903476661583880">手摸手，带你用vue撸后台 系列一（基础篇）</a></p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">ziyang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/posts/82d9de73.html">http://example.com/posts/82d9de73.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">江月迟迟</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ziyang</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">1</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/HuangZiyang1"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Note"><span class="toc-number">1.</span> <span class="toc-text">Note</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E5%A4%8D%E7%9B%98"><span class="toc-number">1.1.</span> <span class="toc-text">技术复盘</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%81%E7%81%AD%E6%80%A7bug"><span class="toc-number">1.1.1.</span> <span class="toc-text">毁灭性bug</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9A%8F%E4%BE%BF%E4%B8%8B%E8%BD%BD%E5%BA%93"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">随便下载库</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D%E5%92%8C%E4%B8%9A%E5%8A%A1%E7%BB%86%E8%8A%82"><span class="toc-number">1.1.2.</span> <span class="toc-text">功能介绍和业务细节</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF%E7%9A%84%E9%80%89%E6%8B%A9"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">模板的选择</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">模板的初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF%E7%9A%84%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">模板的项目结构分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%99%BB%E5%BD%95%EF%BC%88%E6%B3%A8%E5%86%8C%EF%BC%89"><span class="toc-number">1.1.2.4.</span> <span class="toc-text">登录（注册）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%A2%E5%8C%85%E5%B1%91%E5%AF%BC%E8%88%AA"><span class="toc-number">1.1.2.5.</span> <span class="toc-text">面包屑导航</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%BE%E8%A1%A8%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.1.2.6.</span> <span class="toc-text">图表的使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#element%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F%E4%BF%AE%E6%94%B9"><span class="toc-number">1.1.2.7.</span> <span class="toc-text">element自定义样式修改</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B7%E5%BC%8Fscope%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.2.8.</span> <span class="toc-text">样式scope问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8A%E4%BC%A0"><span class="toc-number">1.1.2.9.</span> <span class="toc-text">上传</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%8A%E4%BC%A0%E8%A7%84%E5%88%99"><span class="toc-number">1.1.2.9.1.</span> <span class="toc-text">自定义上传规则</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%80%E5%A4%9A%E5%85%81%E8%AE%B8%E4%B8%80%E5%BC%A0%E5%9B%BE%E7%89%87%E7%9A%84%E4%B8%8A%E4%BC%A0"><span class="toc-number">1.1.2.9.2.</span> <span class="toc-text">最多允许一张图片的上传</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BF%85%E9%A1%BB%E6%9C%89%E4%B8%80%E5%BC%A0%E5%9B%BE%E7%89%87%E7%9A%84%E4%B8%8A%E4%BC%A0"><span class="toc-number">1.1.2.9.3.</span> <span class="toc-text">必须有一张图片的上传</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%87%B3%E5%B0%91%E6%9C%89%E4%B8%80%E5%BC%A0%E5%9B%BE%E7%89%87%EF%BC%8C%E6%9C%80%E5%A4%9A%E6%9C%89%E4%B9%9D%E5%BC%A0%E5%9B%BE%E7%89%87%E7%9A%84%E4%B8%8A%E4%BC%A0"><span class="toc-number">1.1.2.9.4.</span> <span class="toc-text">至少有一张图片，最多有九张图片的上传</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%EF%BC%88%E5%AF%BC%E5%87%BA%EF%BC%89"><span class="toc-number">1.1.2.10.</span> <span class="toc-text">下载（导出）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A2%9E%E5%88%A0%E6%9F%A5%E6%94%B9"><span class="toc-number">1.1.2.11.</span> <span class="toc-text">增删查改</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E6%9D%83%E9%99%90%E8%B7%AF%E7%94%B1"><span class="toc-number">1.1.2.12.</span> <span class="toc-text">多权限路由</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E9%A1%B5%E9%80%BB%E8%BE%91"><span class="toc-number">1.1.2.13.</span> <span class="toc-text">分页逻辑</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E5%88%86%E9%A1%B5"><span class="toc-number">1.1.2.13.1.</span> <span class="toc-text">前端分页</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%88%86%E9%A1%B5%E2%80%94%E2%80%94form-size"><span class="toc-number">1.1.2.13.2.</span> <span class="toc-text">服务器分页——form + size</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%88%86%E9%A1%B5%E2%80%94%E2%80%94scroll"><span class="toc-number">1.1.2.13.3.</span> <span class="toc-text">服务器分页——scroll</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%BA%9Bbug%E7%9A%84%E5%A4%84%E7%90%86%E6%80%9D%E8%B7%AF"><span class="toc-number">1.1.3.</span> <span class="toc-text">一些bug的处理思路</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%A9%BA%E6%95%B0%E6%8D%AE%EF%BC%88%E6%95%B0%E6%8D%AE%E4%B8%BAnull%EF%BC%89%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.3.0.1.</span> <span class="toc-text">空数据（数据为null）问题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#element%E7%BB%84%E4%BB%B6dialogdata%E8%AF%BB%E5%8F%96%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.3.0.2.</span> <span class="toc-text">element组件dialogdata读取问题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#element-dialog%E5%92%8Cechart%E4%B8%8D%E5%A4%AA%E5%85%BC%E5%AE%B9%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.3.0.3.</span> <span class="toc-text">element-dialog和echart不太兼容的问题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%99%BB%E5%BD%95%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.3.0.4.</span> <span class="toc-text">登录问题</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">1.2.</span> <span class="toc-text">参考资料</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/82d9de73.html" title="后台管理系统复盘">后台管理系统复盘</a><time datetime="2024-03-14T14:08:54.000Z" title="发表于 2024-03-14 14:08:54">2024-03-14</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By ziyang</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --><script async src="/js/ali_font.js"></script><!-- hexo injector body_end end --></body></html>
