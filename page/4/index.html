@@ -53,7 +53,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2024-04-12 13:05:20'
+  postUpdate: '2024-05-16 05:55:00'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -157,149 +157,150 @@
       }
     }
     detectApple()
-    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">79</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="江月迟迟"><span class="site-name">江月迟迟</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">江月迟迟</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/48b1eba.html" title="每日一题：封装promisefy">每日一题：封装promisefy</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-04-12T20:47:28.000Z" title="发表于 2024-04-12 20:47:28">2024-04-12</time></span></div><div class="content">封装 Promisefy 函数介绍我们知道在浏览器中 JavaScript 是单线程运行的，而回调函数曾经是 JavaScript 中实现异步函数的主要方式，面对这样的嵌套回调，处理错误也会变得非常困难：你必须在“金字塔”的每一级处理错误，而不是在最高一级一次完成错误处理，所以大多数现代异步 API 采用的都是 Promise 的形式。
-下面就请你以 Node.js 中常用的读取文件操作为例，封装一个 Promisefy 函数，将回调形式调用的读取文件方法转换成一个 Promise 的版本。
-准备目录结构如下：
-12├── index.js└── test.md 
-其中：
-
-index.js 是需要补充代码的 js 文件。
-test.md 供读取的示例文件。
-
-注意：打开环境后发现缺少项目代码，请复制下述命令至命令行进行下载。
-12345cd /home/projectwget https://labfile.oss.aliyuncs.com/courses/18164/dist_01.zipunzip dist_01.zipmv dist/* ./rm -rf dist*
-目标请在  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/9d448773.html" title="每日一题：资讯接口">每日一题：资讯接口</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-04-12T20:46:50.000Z" title="发表于 2024-04-12 20:46:50">2024-04-12</time></span></div><div class="content">资讯接口介绍随着技术的发展，很多前端工程师已经不满足于只做诸如页面布局和交互这些开发工作了，很多人将目光逐渐转向了“大前端”范围，其中就包括不需要依赖后端提供接口自己就可以使用 node.js 编写一个后端接口服务。
-下面就让我们也来使用 node.js 完成一个新闻资讯接口吧。
-准备本题已经内置了初始代码，打开实验环境，目录结构如下：
-1└── app.js
-目标
-通过在 app.js 书写代码，创建一个服务器，使服务在 8080 端口运行。
-访问 /news 返回资讯数据，访问其他任意路径均返回字符串 404 。
-
-
-
-
-
-Url
-请求方式
-参数
-响应结果
-
-
-
-
-news
-GET
-空
-显示资讯数据
-
-
-
-
-数据需要设置为 utf8 格式，资讯数据格式如下：
-12345678910[  &#123;    &quot;channelId&quot;: &quot;5572a108b3cdc86cf39001cd&quot;,    &quot;name&quot;: &quot;国内焦点&quot;  &#125;,  &#123;    &quot;channelId&quot; ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/5f0986d8.html" title="每日一题：由文本溢出引出的不友好体验">每日一题：由文本溢出引出的不友好体验</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-04-12T20:46:12.000Z" title="发表于 2024-04-12 20:46:12">2024-04-12</time></span></div><div class="content">由文本溢出引发的“不友好体验”背景介绍通常情况下，为保证布局的稳定性，以及遵循在有限的空间展示更多内容的原则，页面的某块区域不会随内容的增多而无限增高或增宽，一般会有一个约束。
-例如：整体元素过多可以使用滚动条；文字内容过多可以使用文本溢出处理。
-这些情况在实际开发中经常遇到。例如电商平台的商品列表中对商品的描述通常是简短的介绍，详细的介绍需要点击进去才能看到。
-如下图所示：
-
-如果不进行限制，那就会变成这样：
-
-这么一看对用户而言，是不是体验很不好，商品的简介把价格都遮挡住了。因此，解决这样的问题成为日常开发中不可或缺的需求。
-本节挑战中，就有类似的场景：页面中某块区域的文本内容过多，导致占用了其他内容的空间。效果如下图所示：
-
-上图文本中一共占用了 11 行文本。实际需求中，我们只希望显示 2 行即可，剩余的内容用省略号（…）替代。
-通常，处理这类问题的方式有以下几种：
-
-使用 JS 处理，先将字符串按照一定长度进行切割，去掉超出部分的内容，然后在末尾拼接省略号。
-使用 CSS3 处理，利用相关的 Webkit 属性，结合 overflow 属性通过样式实现。
-
-本节挑战，你需要开 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/fbdb83af.html" title="每日一题：地球漫游">每日一题：地球漫游</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-04-12T20:45:28.000Z" title="发表于 2024-04-12 20:45:28">2024-04-12</time></span></div><div class="content">地球漫游介绍“地球漫游”：一款基于 CSS 动画的小型网页应用，让您身临其境地感受地球绕着太阳公转的奇妙旅程。通过这个应用，您可以观察地球绕着太阳的运动轨迹和速度，感受到宇宙的浩瀚和神秘。
-准备本题已经内置了初始代码，打开实验环境，目录结构如下：
-123├── css│   └── style.css└── index.html
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">121</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="江月迟迟"><span class="site-name">江月迟迟</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">江月迟迟</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3bd562e2.html" title="每日一题：表单生成器（大学组）">每日一题：表单生成器（大学组）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-05-16T13:37:20.000Z" title="发表于 2024-05-16 13:37:20">2024-05-16</time></span></div><div class="content">表单生成器（大学组）介绍小蓝现在遇到一个需求，要求是设计在线动态表单生成器，通过请求到的 JSON 数据即快速生成网页表单，这可把他难倒了。请你按照题目中给出的 Vue 组件与 JSON 数据格式，帮助小蓝完成多选框、下拉框的代码编写。
+准备开始答题前，需要先打开本题的项目代码文件夹，目录结构如下：
+123456789101112131415161718├── components│   ├── checkbox.js│   ├── rate.js│   └── select.js├── css│   ├── icon│   │   ├── star.svg│   │   └── star_full.svg│   ├── index.css│   ├── rate.css│   └── reset.css├── data.json├── effect-1.gif├── effect-2.gif├── index.html└── lib    ├── axios.min.js    └── vue.min.js
 其中:
 
 index.html 是主页面。
-css/style.css 是需要补充代码的 css 文件。
-
-注意：打开环境后发现缺少项目代码，请复制下述命令至命令行进行下载。
-12cd /home/projectfile=&quot;earth&quot; &amp;&amp; wget &quot;https://labfile.oss.aliyuncs.com/courses/19791/$&#123;file&#125;.zip&quot; &amp;&amp; unzip &quot;$&#123;file&#125;.zip&quot; &amp;&amp; rm &quot;$&#123;file&#125;.zip&quot;
-选中 index. ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/48828ee2.html" title="每日一题：传送门">每日一题：传送门</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-04-12T20:44:53.000Z" title="发表于 2024-04-12 20:44:53">2024-04-12</time></span></div><div class="content">传送门介绍日常浏览网页的时候，我们会发现一个问题，当页面太长、内容太多的时候我们很难快速浏览到心仪的内容。为了解决这个烦恼，优秀的产品研发团队发明了一种类似传送门的功能，以便用户能通过它快速定位到感兴趣的内容。这个功能也被通俗地比喻为“电梯”。
-本题需要在已提供的基础项目中使用 JS/jQuery 等知识完善代码，最终实现该功能。
-准备开始答题前，需要先打开本题的项目文件夹，目录结构如下：
-1234567├── effect.gif├── index.html├── css├── images└── js    ├── index.js    └── jquery-3.6.0.min.js
-其中：
-
-effect.gif 是最终实现的效果图。
-index.html 是主页面。
-css 是样式文件夹。
-images 是素材图片文件夹。
-js/index.js 是需要补充代码的 js 文件。
-js/jquery-3.6.0.min.js 是 jQuery 文件。
-
-注意：打开环境后发现缺少项目代码，请手动键入下述命令进行下载：
-12cd /home/projectwget https:// ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/d4e54c14.html" title="每日一题：为图片添加景深效果">每日一题：为图片添加景深效果</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-04-12T20:44:24.000Z" title="发表于 2024-04-12 20:44:24">2024-04-12</time></span></div><div class="content">为图片添加景深效果背景介绍大家在平时浏览网页的时候有没有见过下面这样的效果呢？
-
-我们看到，图片的近处是模糊的，而远处是清晰的，我们把这种效果称为景深。
-CSS 中有一个属性可以支持元素的平移、旋转、缩放或倾斜。同时，CSS 中还有一个属性可以将模糊或颜色偏移等图形效果应用于元素。大家可以试着通过 MDN 或者其他方式查找哪些 CSS 属性可以满足上述需求。
-通常，我们会在 CSS 中对需要应用上述效果的元素直接书写相应的属性值。但是，如何根据场景动态修改上述属性值也是日常业务中常见的需求。
-本节挑战，我们为大家提供这样的场景，希望大家能通过 JS 的方式为图片动态添加景深效果。
-准备步骤开始答题前，你需要确保基础代码已下载。如果没有成功下载，请点击并打开右侧环境窗口，然后在终端中键入以下命令，下载页面的基础代码：
-1wget https://labfile.oss.aliyuncs.com/courses/9203/06.zip &amp;&amp; unzip 06.zip &amp;&amp; rm 06.zip &amp;&amp; cd 06
-具体操作参考下图：
-
-接着，点击 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/e7392cf9.html" title="每日一题：大电影">每日一题：大电影</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-04-12T20:43:34.000Z" title="发表于 2024-04-12 20:43:34">2024-04-12</time></span></div><div class="content">大电影介绍一千个人眼里就有一千个哈姆雷特，小蓝最近痴迷于电影，但无奈学习任务繁重，只好先将电影收藏起来，留着以后观看，但是电影网站的收藏功能居然失效了，请你帮忙修复这个 bug 吧。
+components 是项目组件 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/7d0cdb58.html" title="每日一题：宝贵的一票">每日一题：宝贵的一票</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-05-16T13:37:03.000Z" title="发表于 2024-05-16 13:37:03">2024-05-16</time></span></div><div class="content">宝贵的一票介绍公司经常举办各种活动，但一到投票环节就犯了难，于是公司决定安排小蓝开发一个投票系统，更好的收集大家的投票信息。为了赶在下一次活动开始前上线，小蓝正在马不停蹄的赶工中，请你也来帮助小蓝完成部分功能吧。
 准备本题已经内置了初始代码，打开实验环境，目录结构如下：
-123456├── css│   └── style.css├── images├── index.html└── js    └── jquery.min.js
+12345├── css├── images├── js│   └── jquery.min.js└── index.html
 其中：
 
 index.html 是主页面。
+images 是存放图片的文件夹。
+css 是存放样式文件的文件夹。
 js/jquery.min.js 是 jQuery 文件。
-images 是图片文件夹。
-css/style.css 是样式文件。
 
 选中 index.html 右键启动 Web Server 服务（Open with Live Server），让项目运行起来。
 接着，打开环境右侧的【Web 服务】，就可以在浏览器中看到如下效果：
 
-目标请使用 jQuery 或者 js ，完成 index.html 文件中的 TODO 部分。
+目标完成 index.html 文件中的 TODO 部分。
 
-点击收藏图标，收藏图标在空心（images/hollow.svg）和实心 （images/solid.svg）中进行 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/31d26d2.html" title="每日一题：用什么来计算">每日一题：用什么来计算</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-04-12T20:42:50.000Z" title="发表于 2024-04-12 20:42:50">2024-04-12</time></span></div><div class="content">用什么来做计算 A介绍古以算盘作为计算工具。算盘常为木制矩框，内嵌珠子数串，定位拨珠，可做加减乘除等运算。站在前人的肩膀上，后人研究出计算器，便利了大家的生活，我们不用带着笨重的计算工具出门，打开手机上的计算器就可以了。
-本题需要实现一个可以进行加减乘除等运算的计算器。
+点击添加选项，页面中新增一个选项。选项前文字按照：选项 1，选项 2，选项 3 …… 顺序排列，当页面中的选项大于 2 个时，选项后面跟随删除按钮（即 x 图标 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/fd165886.html" title="每日一题：版本比较器">每日一题：版本比较器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-05-16T13:36:46.000Z" title="发表于 2024-05-16 13:36:46">2024-05-16</time></span></div><div class="content">版本比较器介绍“MyApp” 应用上线后获得了用户一致好评，为了给用户带来更加新颖的功能，研发团队定期会进行 App 的版本更新，即当用户打开 App 时，检查当前 App 的版本号与服务器上的最新版本号进行比较以此来引导用户完成更新操作。
+本题需要在已提供的基础项目中使用 JS 知识封装一个比较两个版本号大小的通用工具函数。
 准备开始答题前，需要先打开本题的项目代码文件夹，目录结构如下：
-123456├── css│   └── style.css├── js│   └── index.js├── effect.gif└── index.html
+123├── js│   └── index.js└── index.html
 其中：
 
-css/style.css 是样式文件。
-js/index.js 是实现计算功能的 js 文件。
-effect.gif 是最终实现的效果动图。
 index.html 是主页面。
-
-注意：打开环境后发现缺少项目代码，请手动键入下述命令进行下载：
-12cd /home/projectwget https://labfile.oss.aliyuncs.com/courses/9788/04.zip &amp;&amp; unzip 04.zip &amp;&amp; rm 04.zip
-在浏览 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/9aefbe38.html" title="每日一题：天气趋势B">每日一题：天气趋势B</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-04-12T20:42:13.000Z" title="发表于 2024-04-12 20:42:13">2024-04-12</time></span></div><div class="content">天气趋势 B介绍日常生活中，气象数据对于人们的生活具有非常重要的意义，数据的表现形式多种多样，使用图表进行展示使数据在呈现上更加直观。
-本题请实现一个 Y 城 2022 年的天气趋势图。
-准备开始答题前，需要先打开本题的项目代码文件夹，目录结构如下：
-12345678910├── css│   └── style.css├── effect-1.gif├── effect-2.gif├── index.html└── js    ├── axios.js    ├── echarts.min.js    ├── vue.min.js    └── weather.json
-其中：
-
-css/style.css 是样式文件。
-index.html 是主页面。
-js/axios.js 是 axios 文件。
-js/vue.min.js 是 vue2.x 文件。
-js/echarts.min.js 是 echarts 文件。
-js/weather.json 是请求需要用到的天气数据。
-effect-1.gif 是当月和未来七天切换的效果图。
-effect-2.gif 是最终完成的效果图。
-
- ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/8fefa454.html" title="每日一题：年度明星项目">每日一题：年度明星项目</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-04-12T20:41:33.000Z" title="发表于 2024-04-12 20:41:33">2024-04-12</time></span></div><div class="content">年度明星项目介绍作为前端开发的主力语言，JavaScript 相关的开源项目是每一个前端开发者都应该多多关注的。我们可以通过这一年新增 star 的数量来判断一个开源项目的流行趋势。
-本题请实现一个展示 2022 年 JavaScript 明星开源项目数据的网页。
-准备开始答题前，需要先打开本题的项目代码文件夹，目录结构如下：
-12345678910├── css│   └── style.css├── effect.gif├── images├── index.html└── js    ├── all-data.json    ├── index.js    ├── jquery-3.6.0.min.js    └── translation.json
-其中：
-
-css/style.css 是样式文件。
-index.html 是主页面。
-images 是图片文件夹。
-js/all-data.json 是项目数据文件。
 js/index.js 是需要补充代码的 js 文件。
-js/jquery-3.6.0.min.js 是 jQuery 库文件。
-js/translation.jso ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/3/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/#content-inner">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/#content-inner">8</a><a class="extend next" rel="next" href="/page/5/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ziyang</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">79</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/HuangZiyang1"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/e16c403f.html" title="每日一题：成语学习">每日一题：成语学习</a><time datetime="2024-04-12T21:04:16.000Z" title="发表于 2024-04-12 21:04:16">2024-04-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/e516f78e.html" title="每日一题：echarts柱形图">每日一题：echarts柱形图</a><time datetime="2024-04-12T21:03:45.000Z" title="发表于 2024-04-12 21:03:45">2024-04-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/e806e279.html" title="每日一题：element组件二次封装">每日一题：element组件二次封装</a><time datetime="2024-04-12T21:03:19.000Z" title="发表于 2024-04-12 21:03:19">2024-04-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/8a9c6e05.html" title="每日一题：随机数生成器">每日一题：随机数生成器</a><time datetime="2024-04-12T21:02:34.000Z" title="发表于 2024-04-12 21:02:34">2024-04-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/e1a5c1c0.html" title="每日一题：和手机相处的时光">每日一题：和手机相处的时光</a><time datetime="2024-04-12T21:02:07.000Z" title="发表于 2024-04-12 21:02:07">2024-04-12</time></div></div></div></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%9B%98/" style="font-size: 1.1em; color: #999">项目复盘</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E6%89%8B%E5%86%8C/" style="font-size: 1.1em; color: #999">知识手册</a> <a href="/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" style="font-size: 1.5em; color: #99a9bf">每日一题</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 1.1em; color: #999">正则表达式</a> <a href="/tags/%E9%A1%B9%E7%9B%AE%E7%B1%BB%E5%9E%8B%E9%A2%98/" style="font-size: 1.5em; color: #99a9bf">项目类型题</a> <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 1.5em; color: #99a9bf">蓝桥杯</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">四月 2024</span><span class="card-archive-list-count">48</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">三月 2024</span><span class="card-archive-list-count">31</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">79</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-04-12T13:05:19.820Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By ziyang</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --><script async src="/js/ali_font.js"></script><!-- hexo injector body_end end --></body></html>
+
+目标请在 js/index.js 文件中补全函数 compareVersion 中的代码，该函数接收两个版本号字符串，分别代表当前 App 版本（version1）和服务器最新版本（version2）。函数需要比较这两个版本号的大小，并返回以下结果：
+
+如果 version1 &lt; version2，返回 -1（数据类型：Number）。
+如果 version1 = version2，返回 0（数据类型：Number ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/e89dbe99.html" title="每日一题：给页面化个妆">每日一题：给页面化个妆</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-05-16T13:36:27.000Z" title="发表于 2024-05-16 13:36:27">2024-05-16</time></span></div><div class="content">【页面布局】给页面化个妆背景介绍各个网站都拥有登录页面，设计一个界面美观的登录页面，会给用户带来视觉上的享受。本次试题我们要完成一个登录页面的布局。
+准备步骤在开始答题前，你需要在线上环境终端中键入以下命令，下载并解压所提供的文件。
+1wget https://labfile.oss.aliyuncs.com/courses/7835/exam01-imi.zip &amp;&amp; unzip exam01-imi.zip &amp;&amp; mv exam01-imi/* ./ &amp;&amp; rm -rf exam01-imi*
+下载完成之后的目录结构如下：
+1234567├── css│   └── style.css├── images│   ├── background-pic.jpeg│   ├── cat.png│   └── icon.png└── index.html
+其中：
+
+css/style.css 是本次挑战需补充的样式文件。
+images 是项目所用到的图片文件。
+index.html 是登录页面。
+
+
+下载源码。
+选中 index.html 右 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/bb890ec6.html" title="每日一题：个人博客">每日一题：个人博客</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-05-16T13:36:09.000Z" title="发表于 2024-05-16 13:36:09">2024-05-16</time></span></div><div class="content">【页面布局】个人博客背景介绍很多人都有自己的博客，在博客上面用自己的方式去书写文章，用来记录生活，分享技术等。下面是蓝桥云课的博客，但是上面还缺少一些样式，需要大家去完善。
+准备步骤在开始答题前，你需要在线上环境终端中键入以下命令，下载并解压所提供的文件。
+1wget https://labfile.oss.aliyuncs.com/courses/7835/blog.zip&amp;&amp; unzip blog.zip &amp;&amp; rm blog.zip
+下载完成之后的目录结构如下：
+123├── index.css└── index.html└── logo.svg
+其中：
+
+index.css 是本次挑战需要补充样式的文件。
+index.html 是博客页面。
+logo.svg 是 logo 图片.
+
+你可以参考下图中的步骤访问项目：
+
+选中 index.html 右键启动 Web Server 服务（Open with Live Server），让项目运行起来。
+打开环境右侧的【Web 服务】，就可以在浏览器中看到未完成的博客页面。
+
+
+
+考试要求
+在 index ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/7543a7ab.html" title="每日一题：水果摆盘">每日一题：水果摆盘</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-05-16T13:35:42.000Z" title="发表于 2024-05-16 13:35:42">2024-05-16</time></span></div><div class="content">【页面布局】 水果摆盘背景介绍目前 CSS3 中新增的 Flex 弹性布局已经成为前端页面布局的首选方式，这次试题将利用 Flex 实现经典布局效果。
+准备步骤在开始答题前，你需要在线上环境终端中键入以下命令，下载并解压所提供的文件。
+1wget https://labfile.oss.aliyuncs.com/courses/7835/fruit-flex.zip&amp;&amp; unzip fruit-flex.zip &amp;&amp; rm fruit-flex.zip
+下载完成之后的目录结构如下：
+123├── index.css└── index.html└── img
+其中：
+
+index.css 是本次挑战的需要补充样式文件。
+index.html 为主页面。
+img 图片文件夹。
+
+
+选中 index.html 右键启动 Web Server 服务（Open with Live Server），让项目运行起来。
+打开环境右侧的【Web 服务】。
+
+
+
+考试要求提示1234align-self 值 ：  flex-start flex-end center bas ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/713bcb9f.html" title="每日一题：小兔子爬楼梯">每日一题：小兔子爬楼梯</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-05-16T12:51:36.000Z" title="发表于 2024-05-16 12:51:36">2024-05-16</time></span></div><div class="content">【算法题】小兔子爬楼梯介绍小兔子想去月球上旅行，假设小兔子拥有一个 n 阶梯子，当你爬完 n 层就可以到达月球，小兔子每次可以跳 1 或者 2 个台阶，小兔子有多少种跳法可以到达月球呢？
+给定 n 是一个正整数，代表梯子的阶数，当 n=2 时，小兔子有 2 种跳法到达月球；当 n=3 时，小兔子有 3 种跳法跳到月球，以此类推，解释如下图所示：
+
+实现思路提示这里为同学提供以下两种解题思路。
+1. 递归
+可以使用递归来实现，具体思路如下：
+
+当阶梯数为 0 时，只有 0 种方法；当阶梯数为 1 时，只有 1 种方法；当阶梯数为 2 时，只有 2 种方法，所以当阶梯数 n 小于等于 2 时，可以直接返回值。
+如果阶梯数大于 2，就递归。
+
+2. 动态规划
+可以使用动态规划来实现，具体思路如下：
+
+当阶梯数 n 为 0 时，直接返回 0。
+当阶梯数 n 为 1 时，直接返回 1。
+当阶梯数大于 1 时，假设有 i 阶梯子需要爬，就有 dp[i] 中方法。
+3 阶以上的梯子，都满足一个规律：dp[i] = dp[i-1] + dp[i-2]。
+
+解题思路不只这两种，同学们可以自由发挥。
+准备 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1fb37c0e.html" title="每日一题：折叠手风琴">每日一题：折叠手风琴</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-05-16T12:51:13.000Z" title="发表于 2024-05-16 12:51:13">2024-05-16</time></span></div><div class="content">【功能实现】折叠手风琴介绍本次挑战需要实现图片折叠的效果，请使用 jQuery 语法完成代码。
+准备本题已经内置了初始代码，打开实验环境，目录结构如下：
+123456789101112├── css│   └── style.css├── images│   ├── pic1.jpeg│   ├── pic2.jpeg│   ├── pic3.jpeg│   ├── pic4.jpeg│   └── pic5.jpeg├── js│   ├── index.js│   └── jquery-3.6.0.min.js└── index.html
+其中：
+
+css/style.css 是页面样式文件。
+images 是项目所用到的图片文件夹。
+js 是放置 js 代码的文件夹。
+index.html 是页面布局。
+
+选中 index.html 右键启动 Web Server 服务（Open with Live Server），让项目运行起来。打开环境右侧的【Web 服务】，就可以在浏览器中看到当前页面，点击图片，被折叠的图片不会展开。
+
+目标请完善 index.js 文件，让页面具有如下所 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/ed220d98.html" title="每日一题：新年贺卡">每日一题：新年贺卡</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-05-16T12:50:50.000Z" title="发表于 2024-05-16 12:50:50">2024-05-16</time></span></div><div class="content">【功能实现】新年贺卡介绍新年马上到了，大家肯定有很多祝福的话语要对自己的亲人朋友说，下面我们一起来制作一张贺卡，让我们把想说的话都写在贺卡上。
+准备本题已经内置了初始代码，打开实验环境，目录结构如下：
+123├── index.css├── index.html└── index.js
+其中：
+
+index.css 是本次挑战的样式文件。
+index.js 是本次挑战需要补充的 js 文件。
+index.html 是贺卡页面。 选中 index.html 右键启动 Web Server 服务（Open with Live Server），让项目运行起来。打开环境右侧的【Web 服务】。初始效果如下：
+
+
+目标请仔细阅读需要完善代码部分的提示，之后完善 index.js 样式文件中的 TODO 部分，点击书写贺卡，卡片随机展示已经写好的祝福语：
+
+规定
+请严格按照考试步骤操作，切勿修改考试默认提供项目中的文件名称、文件夹路径等。
+满足题目需求后，保持 Web 服务处于可以正常访问状态，点击「提交检测」系统会自动判分。
+
+总通过次数: 1850 | 总提交次数: 2722 | 通过率: 6 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/f607e44c.html" title="每日一题：搜一搜呀">每日一题：搜一搜呀</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-05-16T12:50:23.000Z" title="发表于 2024-05-16 12:50:23">2024-05-16</time></span></div><div class="content">【功能实现】搜一搜呀介绍通常网站上会有搜索功能，方便用户定位搜索。本次试题我们要使用 Vue 2 的语法来完成一个关键字匹配的搜索功能。
+准备本题已经内置了初始代码，打开实验环境，目录结构如下：
+12345├── css│   └── style.css├── images├── index.html└── vue.min.js
+其中：
+
+css/style.css 是样式文件。
+images 是项目所用到的图片文件。
+index.html 是实现搜索功能的页面。
+vue.min.js 是 Vue 文件。
+
+选中 index.html 右键启动 Web Server 服务（Open with Live Server），让项目运行起来。 打开环境右侧的【Web 服务】，当前页面无法正常显示。
+目标请完善 index.html 文件，让页面具有如下所示的效果：
+
+规定
+请严格按照考试步骤操作，切勿修改考试默认提供项目中的文件名称、文件夹路径等。
+满足题目需求后，保持 Web 服务处于可以正常访问状态，点击「提交检测」系统会自动判分。
+
+总通过次数: 3038 | 总提交次数: 3239 | ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/3/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/#content-inner">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/#content-inner">13</a><a class="extend next" rel="next" href="/page/5/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ziyang</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">121</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/HuangZiyang1"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/61887aaf.html" title="每日一题：组课神器">每日一题：组课神器</a><time datetime="2024-05-16T13:46:00.000Z" title="发表于 2024-05-16 13:46:00">2024-05-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4a126844.html" title="每日一题：自适应页面">每日一题：自适应页面</a><time datetime="2024-05-16T13:45:46.000Z" title="发表于 2024-05-16 13:45:46">2024-05-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4738e4f1.html" title="每日一题：植物灌溉">每日一题：植物灌溉</a><time datetime="2024-05-16T13:45:33.000Z" title="发表于 2024-05-16 13:45:33">2024-05-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/573c7f35.html" title="每日一题：芝麻开门">每日一题：芝麻开门</a><time datetime="2024-05-16T13:45:21.000Z" title="发表于 2024-05-16 13:45:21">2024-05-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/dd6ab4e.html" title="每日一题：找到未引用的图片">每日一题：找到未引用的图片</a><time datetime="2024-05-16T13:45:08.000Z" title="发表于 2024-05-16 13:45:08">2024-05-16</time></div></div></div></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%9B%98/" style="font-size: 1.1em; color: #999">项目复盘</a> <a href="/tags/%E9%A1%B9%E7%9B%AE%E7%B1%BB%E5%9E%8B%E9%A2%98/" style="font-size: 1.5em; color: #99a9bf">项目类型题</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E6%89%8B%E5%86%8C/" style="font-size: 1.1em; color: #999">知识手册</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 1.1em; color: #999">正则表达式</a> <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 1.5em; color: #99a9bf">蓝桥杯</a> <a href="/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" style="font-size: 1.5em; color: #99a9bf">每日一题</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><span class="card-archive-list-count">42</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">四月 2024</span><span class="card-archive-list-count">48</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">三月 2024</span><span class="card-archive-list-count">31</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">121</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-05-16T05:55:00.074Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By ziyang</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --><script async src="/js/ali_font.js"></script><!-- hexo injector body_end end --></body></html>
